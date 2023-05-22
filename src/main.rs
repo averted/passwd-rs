@@ -1,7 +1,7 @@
 use std::env;
 use std::process;
 
-use passwd::Config;
+use passwd::config::Config;
 
 fn main() {
     let config = Config::new(env::args()).unwrap_or_else(|err| {
@@ -9,5 +9,5 @@ fn main() {
         process::exit(1);
     });
 
-    println!("Password: {}", passwd::generate(config));
+    println!("{}", passwd::generate(config));
 }
